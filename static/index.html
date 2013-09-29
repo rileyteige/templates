@@ -1,0 +1,37 @@
+Hello, {{ Name }}! Your name is {{ FullName }}.
+
+<br />
+
+This is a test function: {{ Test() }}
+
+<br />
+
+And another test function: <code>{{ Css('this.css') }}</code>
+
+<br />
+
+And multi: {{ Multi('a1', 'a2') }}
+
+<br />
+
+This should not execute: \{{ Test() }} or \\{{ Css('this.css') }}
+
+<br />
+
+Test str &amp; int: {{ StrInt('Hello', 2.5) }}
+
+<br />
+
+Area of a circle with diameter 3 is {{ CircleArea(3) }}
+
+<br />
+
+Circle info for circle with diameter 3: {{ CircleInfo(3) }}
+
+<br />
+
+Below is a div that will use Script helper to load a script that uses jQuery to insert the numbers 1-10 (jQuery also included through the Script helper):
+
+<div id="nums" />
+
+{{ Script('nums.js') }}
