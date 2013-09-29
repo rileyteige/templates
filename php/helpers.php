@@ -2,11 +2,11 @@
 
 $helpers = [
 	'Css' => function($filename) {
-		return '<link type="text/css" rel="stylesheet" href="/rileyteige.com/css/'.$filename.'" />';
+		return '<link type="text/css" rel="stylesheet" href="/templates/css/'.$filename.'" />';
 	},
 	
 	'Script' => function($filename) {
-		return '<script type="text/javascript" src="/rileyteige.com/js/'.$filename.'"></script>';
+		return '<script type="text/javascript" src="/templates/js/'.$filename.'"></script>';
 	},
 	
 	'Test' => function() {
