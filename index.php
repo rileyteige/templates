@@ -19,5 +19,13 @@ $app->get('/:page', function($page) {
 	echo $html;
 });
 
+register_helper('Fun', function() {
+	return "Hello, world!";
+});
+
+register_helper('Square', function($n) {
+	return $n * $n;
+});
+
 $app->run();
 ?>

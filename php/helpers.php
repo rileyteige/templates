@@ -35,6 +35,11 @@ $helpers = [
 	}
 ];
 
+function register_helper($name, $fn) {
+	global $helpers;
+	
+	$helpers[$name] = $fn;
+}
 
 function get_helper($helperName) {
 	global $helpers;
