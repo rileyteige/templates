@@ -17,6 +17,7 @@ define('RGX_FN_ARGS', '/'.PTN_FN_ARGS.'/');
 define('RGX_FN', '/\w+'.PTN_FN_ARGS.'/');
 define('RGX_FN_NAME', '/\w*/');
 
+define('FN_REPLACE_HELPER', 'replace_helper');
 function replace_helper($tag) {
 	// return exec_helper('Css', ['test.css']);
 	
@@ -36,13 +37,16 @@ function replace_tag($matches) {
 	$tag = str_replace([TAG_OPEN, TAG_CLOSE], '', $match);
 	$tag = trim($tag);
 	
+	$doReplace = null;	
 	if (preg_match(RGX_FN, $tag)) {
-		return replace_helper($tag);
+		$doReplace = FN_REPLACE_HELPER;
+	} else {
+		$doReplace = FN_GET_RESOURCE;
 	}
 	
-	$resource = get_resource($tag);
+	$rtn = $doReplace($tag);
 	
-	return $resource != null ? $resource : $match;
+	return $rtn != null ? $rtn : $match;
 }
 
 define('REPLACE_TAG', 'replace_tag');

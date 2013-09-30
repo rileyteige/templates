@@ -32,9 +32,6 @@ function load_templated_page($filePath, $template = 'master.html') {
 			return $html;
 		};
 		
-		//echo RGX_TAG.'<br/>';
-		//return '';
-		
 		$templated_html = preg_replace_callback(RGX_CONTENT, $contentReplacer, $templated_html);
 		$templated_html = preg_replace_callback(RGX_TAG, REPLACE_TAG, $templated_html);
 		

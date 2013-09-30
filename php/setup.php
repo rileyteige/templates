@@ -1,10 +1,9 @@
 <?php
 
-require_once 'globals.php';
 require_once 'rb.php';
 require_once 'Slim/Slim/Slim.php';
-include_once 'resources.php';
-include_once 'template.php';
+require_once 'templates/setup.php';
+require_once 'register.php';
 
 \Slim\Slim::registerAutoloader();
 R::setup('mysql:host=localhost;dbname=Teige', 'root', '');

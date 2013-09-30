@@ -6,7 +6,7 @@ This is a test function: {{ Test() }}
 
 <br />
 
-And another test function: <code>{{ Css('this.css') }}</code>
+And another test function: <code id="cssCode">{{ Css('this.css') }}</code>
 
 <br />
 
@@ -43,3 +43,9 @@ Below is a div that will use Script helper to load a script that uses jQuery to 
 <br />
 
 4 squared is {{ Square(4) }}
+
+<br />
+
+Testing user resources; my last name is '{{ LastName }}'. (Should be 'Teige')
+
+{{ Script('index.js') }}
