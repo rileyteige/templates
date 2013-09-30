@@ -2,7 +2,7 @@
 
 require_once 'rb.php';
 require_once 'Slim/Slim/Slim.php';
-require_once 'templates/setup.php';
+require_once '../templates/setup.php';
 
 require_once 'globals.php';
 require_once 'register.php';
