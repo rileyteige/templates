@@ -1,5 +1,7 @@
 <?php
 
+namespace templates;
+
 require_once 'resources.php';
 require_once 'replace.php';
 

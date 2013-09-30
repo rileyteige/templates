@@ -1,5 +1,7 @@
 <?php
 
+namespace templates;
+
 $__templates__helpers = [
 	'Css' => function($stylesheet) {
 		return '<link rel="stylesheet" type="text/css" href="css/'.$stylesheet.'">';

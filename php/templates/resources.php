@@ -1,5 +1,7 @@
 <?php
 
+namespace templates;
+
 $__templates__resources = [];
 
 function resource($k, $v) {
@@ -18,5 +20,5 @@ function get_resource($res) {
 	return null;
 }
 
-define('FN_GET_RESOURCE', 'get_resource');
+define('FN_GET_RESOURCE', __NAMESPACE__.'\get_resource');
 ?>

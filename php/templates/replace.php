@@ -1,5 +1,7 @@
 <?php
 
+namespace templates;
+
 require_once 'helpers.php';
 
 define('TAG_OPEN', '{{');
@@ -17,7 +19,7 @@ define('RGX_FN_ARGS', '/'.PTN_FN_ARGS.'/');
 define('RGX_FN', '/\w+'.PTN_FN_ARGS.'/');
 define('RGX_FN_NAME', '/\w*/');
 
-define('FN_REPLACE_HELPER', 'replace_helper');
+define('FN_REPLACE_HELPER', __NAMESPACE__.'\replace_helper');
 function replace_helper($tag) {
 	// return exec_helper('Css', ['test.css']);
 	
@@ -49,5 +51,5 @@ function replace_tag($matches) {
 	return $rtn != null ? $rtn : $match;
 }
 
-define('REPLACE_TAG', 'replace_tag');
+define('REPLACE_TAG', __NAMESPACE__.'\replace_tag');
 ?>
