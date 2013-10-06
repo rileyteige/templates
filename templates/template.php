@@ -5,12 +5,14 @@ namespace templates;
 require_once 'resources.php';
 require_once 'replace.php';
 
+define('STATIC_PAGE_ROOT', 'static/page/');
+
 function build_static_url($url) {
 	if ($url == null) {
 		return null;
 	}
 	
-	return "static/$url";
+	return STATIC_PAGE_ROOT.$url;
 }
 
 function build_template_url($url) {
