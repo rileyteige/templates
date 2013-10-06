@@ -9,6 +9,11 @@ $app = new \Slim\Slim();
 $app->get('/', function() {
 	$page = load_templated_page(SITE_HOME_PAGE);
 
+	$obj = new stdClass();
+	$obj->text = "This is model text.";
+	
+	$page = templates\apply_model($obj, $page);
+	
 	echo $page;
 });
 

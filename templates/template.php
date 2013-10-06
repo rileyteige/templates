@@ -44,4 +44,18 @@ function load_templated_page($filePath, $template = 'master.html') {
 	return null;
 }
 
+function apply_model($model, $html) {
+	if ($model == null) {
+		return $html;
+	}
+	
+	$modelReplacer = function($matches) use ($model) {
+		return replace_object($matches[0], $model);
+	};
+	
+	$newHtml = preg_replace_callback(RGX_TAG, $modelReplacer, $html);
+	
+	return $newHtml;
+}
+
 ?>

@@ -19,10 +19,28 @@ define('RGX_FN_ARGS', '/'.PTN_FN_ARGS.'/');
 define('RGX_FN', '/\w+'.PTN_FN_ARGS.'/');
 define('RGX_FN_NAME', '/\w*/');
 
+function prepare_tag($tag) {
+	$tag = str_replace([TAG_OPEN, TAG_CLOSE], '', $tag);
+	$tag = trim($tag);
+	
+	return $tag;
+}
+
+function replace_object($tag, $object) {
+	$tagBody = prepare_tag($tag);
+
+	if (strpos($tagBody, 'Model.') === FALSE) {
+		return $tag;
+	}
+	
+	$tagBody = str_replace('Model.', '', $tagBody);
+	
+	$prop = lcfirst($tagBody);	
+	return property_exists($object, $prop) ? $object->$prop : '';
+}
+
 define('FN_REPLACE_HELPER', __NAMESPACE__.'\replace_helper');
 function replace_helper($tag) {
-	// return exec_helper('Css', ['test.css']);
-	
 	preg_match(RGX_FN_NAME, $tag, $matches);
 	$name = $matches[0];
 	
@@ -36,8 +54,7 @@ function replace_helper($tag) {
 function replace_tag($matches) {
 	$match = $matches[0];
 	
-	$tag = str_replace([TAG_OPEN, TAG_CLOSE], '', $match);
-	$tag = trim($tag);
+	$tag = prepare_tag($match);
 	
 	$doReplace = null;	
 	if (preg_match(RGX_FN, $tag)) {
