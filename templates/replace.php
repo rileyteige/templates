@@ -36,7 +36,7 @@ function replace_object($tag, $object) {
 	$tagBody = str_replace('Model.', '', $tagBody);
 	
 	$prop = lcfirst($tagBody);	
-	return property_exists($object, $prop) ? $object->$prop : '';
+	return isset($object->$prop) ? $object->$prop : '';
 }
 
 define('FN_REPLACE_HELPER', __NAMESPACE__.'\replace_helper');
